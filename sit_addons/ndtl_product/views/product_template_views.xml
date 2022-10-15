@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+
+        <record id="inherited_product_template_view_form_dct_product" model="ir.ui.view">
+            <field name="name">product.template.product.form.anker.inherit</field>
+            <field name="model">product.template</field>
+            <field name="priority" eval="8" />
+            <field name="inherit_id" ref="product.product_template_only_form_view"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='default_code']" position="before">
+                    <field name="product_number" />
+                    <field name="external_link" widget="url"/>
+                </xpath>
+
+                <xpath expr="//field[@name='type']" position="after">
+                    <field name="package_type"/>
+                </xpath>
+
+                <xpath expr="//button[@name='%(product.product_variant_action)d']" position="attributes">
+                    <attribute name="attrs">{'invisible': [('product_variant_count', '=', 0)]}</attribute>
+                </xpath>
+
+            </field>
+        </record>
+
+    </data>
+</odoo>

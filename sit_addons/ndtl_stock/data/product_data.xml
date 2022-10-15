@@ -1,0 +1,318 @@
+<?xml version="1.0"?>
+<odoo>
+    <data noupdate="1">
+        <!-- ///////// -->
+        <!-- Uom Categ -->
+        <!-- \\\\\\\\\ -->
+        <!-- <record id="product_uom_unit_product" model="uom.uom"> -->
+        <!--     <field name="category_id" ref="uom.product_uom_categ_unit"/> -->
+        <!--     <field name="name">Cái</field> -->
+        <!--     <field name="factor" eval="1.0"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_uom_box" model="uom.uom"> -->
+        <!--     <field name="category_id" ref="uom.product_uom_categ_unit"/> -->
+        <!--     <field name="name">Hộp</field> -->
+        <!--     <field name="factor" eval="1.0"/> -->
+        <!--     <field name="uom_type">bigger</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_uom_package" model="uom.uom"> -->
+        <!--     <field name="category_id" ref="uom.product_uom_categ_unit"/> -->
+        <!--     <field name="name">Thùng</field> -->
+        <!--     <field name="factor" eval="1.0"/> -->
+        <!--     <field name="uom_type">bigger</field> -->
+        <!-- </record> -->
+
+
+        <!-- //////// -->
+        <!-- CATEGORY -->
+        <!-- \\\\\\\\ -->
+
+        <record id="product_category_power_bank" model="product.category">
+            <field name="name">Powerbank</field>
+        </record>
+        <record id="product_category_charger" model="product.category">
+            <field name="name">Charger</field>
+        </record>
+        <record id="product_category_cable" model="product.category">
+            <field name="name">Cable</field>
+        </record>
+        <record id="product_category_headphone" model="product.category">
+            <field name="name">Headphone</field>
+        </record>
+        <record id="product_category_household" model="product.category">
+            <field name="name">Household</field>
+        </record>
+        <record id="product_category_hub" model="product.category">
+            <field name="name">Hub</field>
+        </record>
+        <record id="product_category_marketing" model="product.category">
+            <field name="name">Marketing</field>
+        </record>
+        <record id="product_category_protector" model="product.category">
+            <field name="name">Protector</field>
+        </record>
+        <record id="product_category_smart_scale" model="product.category">
+            <field name="name">SmartScale</field>
+        </record>
+        <record id="product_category_speaker" model="product.category">
+            <field name="name">Speaker</field>
+        </record>
+        <record id="product_category_vacuum" model="product.category">
+            <field name="name">Vacuum</field>
+        </record>
+        <record id="product_category_other" model="product.category">
+            <field name="name">Other</field>
+        </record>
+
+        <!-- ///////// -->
+        <!-- ATTRIBUTE -->
+        <!-- \\\\\\\\\ -->
+        <!-- Color -->
+        <record id="product_attribute_color" model="product.attribute">
+            <field name="name">Color</field>
+        </record>
+        <record id="product_attribute_color_black" model="product.attribute.value">
+            <field name="name">Black</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_white" model="product.attribute.value">
+            <field name="name">White</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_red" model="product.attribute.value">
+            <field name="name">Red</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_gray" model="product.attribute.value">
+            <field name="name">Gray</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_golden" model="product.attribute.value">
+            <field name="name">Golden</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_blue" model="product.attribute.value">
+            <field name="name">Blue</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_silver" model="product.attribute.value">
+            <field name="name">Silver</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+        <record id="product_attribute_color_clear" model="product.attribute.value">
+            <field name="name">Clear</field>
+            <field name="attribute_id" ref="product_attribute_color"/>
+        </record>
+
+        <!-- Packaging Version -->
+        <record id="product_attribute_packaging" model="product.attribute">
+            <field name="name">Packaging</field>
+        </record>
+        <!-- Package -->
+        <record id="product_attribute_package_quantity" model="product.attribute">
+            <field name="name">Quantity</field>
+        </record>
+        <record id="product_attribute_package_20" model="product.attribute.value">
+            <field name="name">P20</field>
+            <field name="attribute_id" ref="product_attribute_package_quantity"/>
+        </record>
+        <record id="product_attribute_package_40" model="product.attribute.value">
+            <field name="name">P40</field>
+            <field name="attribute_id" ref="product_attribute_package_quantity"/>
+        </record>
+
+        <!-- //////// -->
+        <!-- Template -->
+        <!-- \\\\\\\\ -->
+
+        <!-- <!-\- Powercore 13000/ Package -\-> -->
+        <!-- <record id="product_package_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_power_bank"/> -->
+        <!--     <field name="name">Thùng Pin dự phòng Anker PowerCore 13000</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">package</field> -->
+        <!--     <field name="uom_id" ref="product_uom_package"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_package"/> -->
+        <!--     <field name="default_code">A1215</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_1" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_powercore_13000_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black'), ref('product_attribute_color_white')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_2" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_powercore_13000_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_package"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_package_5'), ref('product_attribute_package_10')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_package_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_1'), ref('product_attribute_line_2')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- Powercore 13000/ Box -\-> -->
+        <!-- <record id="product_box_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_power_bank"/> -->
+        <!--     <field name="name">Hộp Pin dự phòng Anker PowerCore 13000</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">box</field> -->
+        <!--     <field name="uom_id" ref="product_uom_box"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_box"/> -->
+        <!--     <field name="default_code">A1215</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_3" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_box_powercore_13000_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black'), ref('product_attribute_color_white')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_box_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_3')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- Powercore 13000/ Unit Product -\-> -->
+        <!-- <record id="product_unit_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_power_bank"/> -->
+        <!--     <field name="name">Pin dự phòng Anker PowerCore 13000</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">product</field> -->
+        <!--     <field name="uom_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="default_code">A1215</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_4" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_unit_powercore_13000_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black'), ref('product_attribute_color_white')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_unit_powercore_13000_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_4')])]"/> -->
+        <!-- </record> -->
+
+        <!-- <!-\- PowerPort Speed 1 USB-C, 30w/ Package -\-> -->
+        <!-- <record id="product_package_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_wall_charger"/> -->
+        <!--     <field name="name">Thùng Sạc Anker PowerPort Speed 1 USB-C, 30w</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">package</field> -->
+        <!--     <field name="uom_id" ref="product_uom_package"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_package"/> -->
+        <!--     <field name="default_code">A2014</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_5" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_powerport_speed_usbc_30w_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_6" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_powerport_speed_usbc_30w_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_package"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_package_5'), ref('product_attribute_package_10')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_package_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_5'), ref('product_attribute_line_6')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- PowerPort Speed 1 USB-C, 30w/ Box -\-> -->
+        <!-- <record id="product_box_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_wall_charger"/> -->
+        <!--     <field name="name">Hộp Sạc Anker PowerPort Speed 1 USB-C, 30w</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">box</field> -->
+        <!--     <field name="uom_id" ref="product_uom_box"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_box"/> -->
+        <!--     <field name="default_code">A2014</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_7" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_box_powerport_speed_usbc_30w_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_box_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_7')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- PowerPort Speed 1 USB-C, 30w/ Unit Product -\-> -->
+        <!-- <record id="product_unit_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_wall_charger"/> -->
+        <!--     <field name="name">Sạc Anker PowerPort Speed 1 USB-C, 30w</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">product</field> -->
+        <!--     <field name="uom_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="default_code">A2014</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_8" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_unit_powerport_speed_usbc_30w_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_black')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_unit_powerport_speed_usbc_30w_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_8')])]"/> -->
+        <!-- </record> -->
+
+        <!-- <!-\- Cáp Lightning Anker Powerline+ - Dài 1.8m/ Package -\-> -->
+        <!-- <record id="product_package_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_lightning_cable"/> -->
+        <!--     <field name="name">Thùng Cáp Lightning Anker Powerline+ - Dài 1.8m</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">package</field> -->
+        <!--     <field name="uom_id" ref="product_uom_package"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_package"/> -->
+        <!--     <field name="default_code">A8122</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_9" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_cable_lightning_powerline_1_8m_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_gray'), ref('product_attribute_color_white'), ref('product_attribute_color_golden'), ref('product_attribute_color_red')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_10" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_package_cable_lightning_powerline_1_8m_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_package"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_package_5'), ref('product_attribute_package_10')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_package_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_9'), ref('product_attribute_line_10')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- Cáp Lightning Anker Powerline+ - Dài 1.8m/ Box -\-> -->
+        <!-- <record id="product_box_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_lightning_cable"/> -->
+        <!--     <field name="name">Hộp Cáp Lightning Anker Powerline+ - Dài 1.8m</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">box</field> -->
+        <!--     <field name="uom_id" ref="product_uom_box"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_box"/> -->
+        <!--     <field name="default_code">A8122</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_11" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_box_cable_lightning_powerline_1_8m_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_gray'), ref('product_attribute_color_white'), ref('product_attribute_color_golden'), ref('product_attribute_color_red')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_box_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_11')])]"/> -->
+        <!-- </record> -->
+        <!-- <!-\- Cáp Lightning Anker Powerline+ - Dài 1.8m/ Unit Product -\-> -->
+        <!-- <record id="product_unit_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="categ_id" ref="product_category_lightning_cable"/> -->
+        <!--     <field name="name">Cáp Lightning Anker Powerline+ - Dài 1.8m</field> -->
+        <!--     <field name="type">product</field> -->
+        <!--     <field name="package_type">product</field> -->
+        <!--     <field name="uom_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="uom_po_id" ref="product_uom_unit_product"/> -->
+        <!--     <field name="default_code">A8122</field> -->
+        <!--     <field name="tracking">serial</field> -->
+        <!-- </record> -->
+        <!-- <record id="product_attribute_line_12" model="product.attribute.line"> -->
+        <!--     <field name="product_tmpl_id" ref="product_unit_cable_lightning_powerline_1_8m_template"></field> -->
+        <!--     <field name="attribute_id" ref="product_attribute_color"/> -->
+        <!--     <field name="value_ids" eval="[(6,0,[ref('product_attribute_color_gray'), ref('product_attribute_color_white'), ref('product_attribute_color_golden'), ref('product_attribute_color_red')])]"/> -->
+        <!-- </record> -->
+        <!-- <record id="product_unit_cable_lightning_powerline_1_8m_template" model="product.template"> -->
+        <!--     <field name="attribute_line_ids" eval="[(6, 0, [ref('product_attribute_line_12')])]"/> -->
+        <!-- </record> -->
+
+    </data>
+</odoo>
