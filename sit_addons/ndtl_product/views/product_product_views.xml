@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
     <data>
-        <record id="inherited_product_product_view_form_dct_product" model="ir.ui.view">
+        <record id="inherited_product_product_view_form_ndtl_product" model="ir.ui.view">
             <field name="name">product.product.form.inherit</field>
             <field name="model">product.product</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>

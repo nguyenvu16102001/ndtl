@@ -5,7 +5,7 @@ from odoo import fields, models
 _logger = logging.getLogger(__name__)
 
 
-class DctAnkerProductTemplate(models.Model):
+class NdtlAnkerProductTemplate(models.Model):
     _name = 'product.template'
     _inherit = 'product.template'
 
