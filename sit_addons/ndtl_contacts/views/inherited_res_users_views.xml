@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="inherited_res_users_form_simple_modif_view" model="ir.ui.view">
+            <field name="name">inherited.res.users.form.simple.modif.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form_simple_modif"/>
+            <field name="arch" type="xml">
+                <xpath expr="//footer" position="before">
+                    <group>
+                        <field name="default_shipping" required="True"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <record id="inherited_res_users_form_view" model="ir.ui.view">
+            <field name="name">inherited.res.users.form.view</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//group[@name='messaging']" position="after">
+                    <group string="Sales" name="default_shipping">
+                        <field name="default_shipping" required="True"/>
+                    </group>
+                </xpath>
+                <xpath expr="//notebook" position="inside">
+                    <page string="Sale Authorization" groups="base.group_no_one">
+                        <field name="sale_authorization_ids">
+                            <tree editable="bottom">
+                                <field name="document_type"/>
+                                <field name="owner_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                                <field name="partner_ids" widget="many2many_tags" options="{'no_create': True}"/>
+                            </tree>
+                        </field>
+                    </page>
+                    <page string="Stock Authorization" groups="base.group_no_one">
+                        <field name="stock_authorization_ids">
+                            <tree editable="bottom">
+                                <field name="stock_warehouse_id" options="{'no_create': True}"/>
+                                <field name="stock_picking_type_ids" domain="[('warehouse_id', '=', stock_warehouse_id)]" options="{'no_create': True}" widget="many2many_tags"/>
+                            </tree>
+                        </field>
+                    </page>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</odoo>

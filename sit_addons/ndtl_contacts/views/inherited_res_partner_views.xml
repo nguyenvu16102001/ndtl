@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <!--Inherit purchase order view for add some fields in purchase order line-->
+
+        <record id="inherited_res_partner_form_view" model="ir.ui.view">
+            <field name="name">inherited.res.partner.form.view</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//sheet" position="before">
+                    <header>
+                        <button name="create_user" string="Create User" type="object"></button>
+                    </header>
+                </xpath>
+                <xpath expr="//field[@name='child_ids']/form/sheet/group/group[1]" position="inside">
+                    <field name="vat" groups="base.group_no_one"></field>
+                    <field name="tax_code"/>
+                    <field name="misa_code"/>
+                    <field name="default_warehouse" options="{'no_create': True,'no_create_edit': True}"
+                        attrs="{'invisible':[('type', '!=', 'delivery')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="attributes">
+                    <attribute name="groups">base.group_no_one</attribute>
+                </xpath>
+                <xpath expr="//field[@name='vat']" position="after">
+                    <field name="tax_code"/>
+                    <field name="misa_code"/>
+                    <field name="default_warehouse" options="{'no_create': True,'no_create_edit': True}"
+                        attrs="{'invisible':[('type', '!=', 'delivery')]}"/>
+                </xpath>
+                <xpath expr="//field[@name='child_ids']" position="attributes">
+                    <attribute name="context">{
+                        'default_parent_id': active_id,
+                        'default_street': street,
+                        'default_street2': street2,
+                        'default_city': city,
+                        'default_state_id': state_id,
+                        'default_zip': zip,
+                        'default_country_id': country_id,
+                        'default_supplier': supplier,
+                        'default_customer': customer,
+                        'default_lang': lang,
+                        'default_user_id': user_id,
+                        'default_tax_code': tax_code
+                        }</attribute>
+                </xpath>
+                <!-- Form main -->
+                <xpath expr="//sheet/group/group/field[@name='type']" position="before">
+                    <field name="invoice_name" attrs="{'invisible':[('type', '!=', 'invoice')], 'required':[('type','=','invoice')]}"/>
+                </xpath>
+                <!-- Form sub -->
+                <!-- <xpath expr="//form[@string='Contact / Address']/sheet/group/group/label" position="before"> -->
+                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/label[@for='street']" position="before">
+                    <field name="invoice_name" attrs="{'invisible':[('type', '!=', 'invoice')], 'required':[('type','=','invoice')]}"/>
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']" position="attributes">
+                    <attribute name="context">{'default_parent_id': active_id, 'default_street': street, 'default_street2': street2, 'default_country_district_id': country_district_id, 'default_city': city, 'default_state_id': state_id, 'default_zip': zip, 'default_country_id': country_id, 'default_supplier': supplier, 'default_customer': customer, 'default_lang': lang, 'default_user_id': user_id}</attribute>
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/kanban/field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>                
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/kanban/field[@name='city']" position="before">
+                    <field name="country_district_id"/>
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/kanban/templates/t/div/div/div/div/field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>                
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/kanban/field[@name='city']" position="before">
+                    <field name="country_district_id"/>
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/div/div[@name='div_address']/field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>                
+                </xpath>
+                <xpath expr="//notebook/page/field[@name='child_ids']/form/sheet/group/group/div/div[@name='div_address']/field[@name='city']" position="before">
+                    <field name="country_district_id" placeholder="District" required ="True" context="{'state_id': state_id}"/>
+                </xpath>
+                <xpath expr="//group[@name='sale']" position="inside">
+                    <field name="incharge_person_ids" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='property_supplier_payment_term_id']" position="after">
+                    <field name="brand_payment_term" nolabel="1" colspan="2" >
+                        <tree editable="bottom">
+                            <field name="partner_id" invisible="1" />
+                            <field name="sequence" widget="handle"/>
+                            <field name="brand_id" string="Brand" options='{"no_create": True}' />
+                            <field name="payment_term_id" string="Payment Terms" options='{"no_create": True}' />
+                        </tree>
+                    </field>
+                </xpath>
+                <xpath expr="//group[@name='sale']" position="inside">
+                    <field name="incharge_person_ids" widget="many2many_tags"/>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </xpath>
+                <xpath expr="//field[@name='city']" position="before">
+                    <field name="country_district_id" placeholder="District" required ="True" attrs="{'readonly': [('type', '=', 'contact'),('parent_id', '!=', False)]}" context="{'state_id': state_id}"/>
+                </xpath> 
+            </field>
+        </record>
+    </data>
+</odoo>

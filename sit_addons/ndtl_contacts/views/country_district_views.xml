@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<odoo>
+    <!-- State -->
+    <data>
+        <!-- Your Action Window Definition -->
+        <record id="action_district_state" model="ir.actions.act_window">
+            <field name="name">Fed. District</field>
+            <field name="res_model">district.state</field>
+            <field name="domain"></field>
+            <field name="view_type">form</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+
+        <!-- Action Menu Item Related To Above Action Window -->
+        <menuitem name = "Fed. District" id="menu_district_state_partner" parent="contacts.menu_localisation"
+        action="ndtl_contacts.action_district_state"/>
+
+        <!-- Your List View Definition -->
+        <record id="view_district_state_tree" model="ir.ui.view">
+            <field name="name">district.state_tree</field>
+            <field name="model">district.state</field>
+            <field name="arch" type="xml">
+                <tree string="District State Tree">
+                    <!-- Add All Fields You Want In The List Here -->
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                    <field name="inner_city"/>
+                </tree>
+            </field>
+        </record>
+
+        <!-- Your Form View Definition -->
+        <record id="view_district_state_form" model="ir.ui.view">
+            <field name="name">district.state_form</field>
+            <field name="model">district.state</field>
+            <field name="arch" type="xml">
+                <form string="District State Form" version="7.0">
+                <group>
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="state_id"/>
+                    <field name="inner_city"/>
+                </group>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

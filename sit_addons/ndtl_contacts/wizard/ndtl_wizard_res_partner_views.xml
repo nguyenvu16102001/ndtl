@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <data>
+        <record id="ndtl_wizard_res_partner_form" model="ir.ui.view">
+            <field name="name">ndtl.wizard.res.partner.form</field>
+            <field name="model">wizard.res.partner.form</field>
+            <field name="arch" type="xml">
+                <form>
+                    <field name="email"/>
+                    <footer>
+                        <button name="create_account" type="object" class="oe_highlight" string="Create"></button>
+                    </footer>
+                </form>
+            </field>
+        </record>
+    </data>
+</odoo>

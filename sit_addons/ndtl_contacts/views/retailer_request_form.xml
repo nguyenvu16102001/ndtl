@@ -1,0 +1,67 @@
+<odoo>
+
+        <record id="retailer_request_view_form" model="ir.ui.view">
+            <field name="name">retailer.request.view.form</field>
+            <field name="model">retailer.request</field>
+            <field name="arch" type="xml">
+                <form>
+                    <header>
+                        <button class="btn btn-primary" type="object" attrs="{'invisible': [('state', '!=', 'request')]}"
+                        name="approval_form_request" string="Approval"></button>
+                        <button class="btn" type="object" attrs="{'invisible': [('state', '!=', 'request')]}"
+                        name="cancel_form_request" string="Cancel"></button>
+                        <field name="state" widget="statusbar" statusbar_visible="request,approval,cancel"/>
+                    </header>
+                    <sheet>
+                    <group>
+                        <field name="company" string="Company"/>
+                        <field name="name" string="Name"/>
+                        <field name="email" string="Email"/>
+                        <field name="phone" string="Phone"/>
+                        <field name="street" string="Street"/>
+                        <field name="note" string="Note"/>
+                    </group>
+
+                    </sheet>
+                    <div class="oe_chatter">
+                        <field name="message_follower_ids" widget="mail_followers"/>
+                        <field name="activity_ids" widget="mail_activity"/>
+                        <field name="message_ids" widget="mail_thread"/>
+                    </div>
+                </form>
+            </field>
+        </record>
+
+        <record id="retailer_request_view_tree" model="ir.ui.view">
+            <field name="name">retailer.request.view.tree</field>
+            <field name="model">retailer.request</field>
+            <field name="arch" type="xml">
+                <tree>
+                    <field name="id"/>
+                    <field name="name"/>
+                    <field name="email"/>
+                    <field name="phone"/>
+                    <field name="state"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="retailer_request_action" model="ir.actions.act_window">
+            <field name="name">Retailer Request Join</field>
+            <field name="res_model">retailer.request</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[]</field>
+            <field name="context">{}</field>
+        </record>
+        <menuitem
+            id="menu_utilization"
+            name="Utilization"
+            action="retailer_request_action"
+            parent="contacts.menu_contacts"
+            sequence="2"/>
+        <menuitem
+            id="menu_retailer_request_form"
+            name="Become Partner"
+            action="retailer_request_action"
+            parent="menu_utilization"/>
+</odoo>
